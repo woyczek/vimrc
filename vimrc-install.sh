@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# v1.0 - nledez
+
 BASE=$(dirname $0)
 if [ $BASE = "." ]; then
 	BASE=$(pwd)
@@ -16,7 +18,7 @@ if [ -d $TARGET/.vim ]; then
 else
 	echo "Need to install $TARGET/.vim"
 	cd $TARGET
-	git clone git@github.com:nledez/vimrc.git .vim
+	git clone git@github.com:woyczek/vimrc.git .vim
 	rm $TARGET/.vim/.git/hooks/*.sample
 	cd $TARGET/.vim/.git/hooks
 	ln -s ../../git-post-merge post-merge
