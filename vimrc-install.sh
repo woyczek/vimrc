@@ -13,6 +13,7 @@ else
 	TARGET="$1"
 fi
 
+#toto() {
 if [ -d $TARGET/.vim ]; then
 	echo "$TARGET/.vim allready exist"
 else
@@ -23,7 +24,7 @@ else
 	cd $TARGET/.vim/.git/hooks
 	ln -s ../../git-post-merge post-merge
 fi
-
+#}
 cd $TARGET/.vim
 
 pwd | grep -Eq '.vim$'
@@ -32,18 +33,41 @@ if [ "$?" != "0" ]; then
 	exit 1
 fi
 
+# In ksh :
+# declare -A bundles
+# bundles=( [Vundle]=https://... ... )
+# for i in ${!bundles[@]} ; do ...
+#
+# No associative array in bash -> simulate one with linear array
+keys="Vundle molokai jellybeans tabular syntastic vim-puppet vim-sensible"
+# Be careful to the order
+declare -a bundles=(
+https://github.com/gmarik/Vundle.vim.git
+https://github.com/vim-scripts/molokai.git
+https://github.com/nanotech/jellybeans.vim.git 
+https://github.com/godlygeek/tabular.git
+https://github.com/vim-syntastic/syntastic
+https://github.com/rodjek/vim-puppet
+https://github.com/tpope/vim-sensible
+)
+
 [ ! -d bundle ] && mkdir bundle
-[ ! -d bundle/Vundle.vim ] && git clone https://github.com/gmarik/Vundle.vim.git bundle/Vundle.vim
-[ ! -d bundle/molokai ] && git clone https://github.com/vim-scripts/molokai.git bundle/molokai
-[ ! -d bundle/jellybeans.vim ] && git clone https://github.com/nanotech/jellybeans.vim.git bundle/jellybeans.vim
+cd bundle
+
+n=0
+for i in ${keys} ; do
+[ -d $i ] || git clone ${bundles[$n]}
+let n=$n+1
+done
 git config branch.master.remote origin
 git config branch.master.merge refs/heads/master
-git config user.email github@ledez.net
-git config user.name "Nicolas Ledez"
+git config user.email github@ryckeboer.org
+git config user.name "Gaétan Ryckeboer"
 git checkout master
 
 cd $TARGET
 
+#titi(){
 if [[ ( -f $TARGET/.vimrc ) && ( "$(readlink $TARGET/.vimrc)" == ".vim/vimrc") ]] ;then
 	echo "$TARGET/.vimrc allready exist"
 else
@@ -62,3 +86,4 @@ vim +PluginInstall +qall
 read
 
 reset
+#}
