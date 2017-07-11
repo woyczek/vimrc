@@ -40,3 +40,11 @@ let g:syntastic_quiet_messages = {
 
 au FileType python setl nu
 set mouse=a
+
+" see :h syntastic-loclist-callback
+function! SyntasticCheckHook(errors)
+    if !empty(a:errors)
+        let g:syntastic_loc_list_height = min([len(a:errors), 10])
+    endif
+endfunction
+
