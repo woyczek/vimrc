@@ -7,3 +7,5 @@ rules:
     allow-non-breakable-inline-mappings: false
     level: warning
   comments-indentation: disable
+  braces:
+    max-spaces-inside: 2
