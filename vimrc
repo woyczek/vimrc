@@ -8,6 +8,8 @@ ret
 execute pathogen#infect()
 set noai
 nnoremap S "_diwP
+nnoremap « :lprev<CR>
+nnoremap » :lnext<CR>
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -47,9 +49,15 @@ augroup filedetect
   " associate .psm1 to conffile
 augroup END
 
+set bomb
+
+au FileType python setl nobomb
 au FileType python setl nu
+au FileType yaml setl nu
+au FileType yaml setl nobomb
 au FileType markdown setl nu
 au FileType ruby setl nu
+au FileType ruby setl nobomb
 set mouse=a
 
 " see :h syntastic-loclist-callback
@@ -63,7 +71,6 @@ endfunction
 "if has("multi_byte")
  set encoding=utf-8
  setglobal fileencoding=utf-8
- set bomb
 " set termencoding=iso-8859-15
  set termencoding=utf-8
  set fileencodings=utf-8,ucs-bom,iso-8859-15,iso-8859-3
