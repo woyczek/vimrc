@@ -16,7 +16,14 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 autocmd WinEnter * if &buftype ==# 'quickfix' && winnr('$') == 1 | quit | endif
 " Workaround sous windows
-colorscheme peachpuff
+
+" set term=xterm-256
+colorscheme peachpuff-dark
+set hlsearch
+set t_Co=8
+set t_Sb=m
+set t_Sf=m
+
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -72,8 +79,10 @@ endfunction
  set encoding=utf-8
  setglobal fileencoding=utf-8
 " set termencoding=iso-8859-15
+ " set term=xterm-256
  set termencoding=utf-8
- set fileencodings=utf-8,ucs-bom,iso-8859-15,iso-8859-3
+ set fileencodings=utf-8,iso-8859-15,iso-8859-3,ucs-bom
+
 "else
 " echoerr "Sorry, this version of (g)vim was not compiled with +multi_byte"
 "endif
