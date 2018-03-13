@@ -1,5 +1,4 @@
 syn on
-set background=dark
 set modeline
 se et
 se ts=2
@@ -15,15 +14,6 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 autocmd WinEnter * if &buftype ==# 'quickfix' && winnr('$') == 1 | quit | endif
-" Workaround sous windows
-
-" set term=xterm-256
-colorscheme peachpuff-dark
-set hlsearch
-set t_Co=8
-set t_Sb=m
-set t_Sf=m
-
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -86,3 +76,15 @@ endfunction
 "else
 " echoerr "Sorry, this version of (g)vim was not compiled with +multi_byte"
 "endif
+
+" Workaround sous windows
+
+" set term=xterm-256
+set hlsearch
+set t_Co=8
+set t_Sb=m
+set t_Sf=m
+
+" set background=light
+" colorscheme peachpuff-dark
+colorscheme peachdark

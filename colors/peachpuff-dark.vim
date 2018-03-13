@@ -15,7 +15,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "peachpuff"
+let colors_name = "peachdark"
 
 hi Normal guibg=PeachPuff guifg=Black
 
@@ -40,21 +40,21 @@ hi WildMenu term=standout ctermfg=0 ctermbg=3 guifg=Black guibg=Yellow
 hi Folded term=standout ctermfg=6 ctermbg=7 guifg=Black guibg=#e3c1a5
 hi FoldColumn term=standout ctermfg=4 ctermbg=7 guifg=Cyan guibg=Gray80
 hi DiffAdd term=bold ctermbg=4 guibg=White
-hi DiffChange term=bold ctermbg=5 guibg=#edb5cd
+hi DiffChange term=bold cterm=bold ctermbg=5 guibg=#edb5cd
 hi DiffDelete term=bold cterm=bold ctermfg=1 ctermbg=1 gui=bold guifg=LightBlue guibg=#f6e8d0
 hi DiffText term=reverse cterm=bold ctermbg=1 gui=bold guibg=#ff8060
 hi Cursor guifg=bg guibg=fg
 hi lCursor guifg=bg guibg=fg
 
 " Colors for syntax highlighting
-hi Comment term=bold ctermfg=6 guifg=Cyan
-hi Constant term=underline ctermfg=1 guifg=#e00078
+hi Comment term=bold ctermfg=6 cterm=bold guifg=Cyan
+hi Constant term=underline ctermfg=1 term=bold cterm=bold  guifg=#e00078
 hi Special term=bold ctermfg=5 guifg=SlateBlue
 hi Identifier term=underline ctermfg=6 guifg=LightBlue
 hi Statement term=bold ctermfg=3 gui=bold guifg=Brown
-hi PreProc term=underline ctermfg=5 guifg=Magenta3
+hi PreProc term=underline cterm=bold ctermfg=5 guifg=Magenta3
 hi Type term=underline ctermfg=2 gui=bold guifg=SeaGreen
 hi Ignore cterm=bold ctermfg=7 guifg=bg
-hi Error term=reverse cterm=bold ctermfg=7 ctermbg=1 gui=bold guifg=White guibg=#ff0000
+hi Error term=reverse cterm=bold term=bold ctermfg=7 ctermbg=1 gui=bold guifg=White guibg=#ff0000
 hi Todo term=standout ctermfg=0 ctermbg=3 guifg=Cyan guibg=Yellow
 
